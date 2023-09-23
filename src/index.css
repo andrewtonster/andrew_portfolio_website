@@ -1,13 +1,287 @@
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  font-family: "Bai Jamjuree", sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background-color: #98bed9;
+}
+
+.fading-underline {
+  position: relative;
+
+  color: black; /* Text color */
+}
+
+.fading-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px; /* Adjust this value to control the distance of the underline from text */
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    red,
+    transparent
+  ); /* Gradient for fading effect */
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 3rem;
+
+  font-size: 1.2rem;
+}
+.header__left {
+  position: relative;
+}
+
+.header__right {
+  display: flex;
+  gap: 2rem;
+}
+
+.header__right a {
+  position: relative;
+  overflow: hidden;
+}
+
+.header__right a::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, red, transparent);
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s ease-in-out;
+}
+
+.header__right a:hover::before {
+  width: 100%;
+}
+
+.header__right a {
+  text-decoration: none;
+  color: black;
+}
+
+.body__grid {
+  /* background-color: red; */
+  width: 60rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.body__grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.body__header {
+  font-size: 5rem;
+  animation: moveDown 0.5s ease-in;
+}
+
+@keyframes moveDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-5rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.body__img__container {
+  grid-column: 2/3;
+  grid-row: 1/3;
+}
+
+.body__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.body__description {
+  margin-top: 2.5rem;
+  animation: moveDownText 0.5s ease-in 0.25s forwards;
+  opacity: 0;
+  font-weight: 200;
+  line-height: 1.5;
+}
+
+@keyframes moveDownText {
+  0% {
+    opacity: 0;
+    transform: translateY(-2rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+/* .container {
+  overflow: auto;
+} */
+.section {
+  height: 100vh;
+}
+
+.body__projects {
+}
+
+.p {
+  font-size: 20rem;
+}
+
+.btn__container {
+  position: absolute;
+  bottom: 4rem;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+.main__btn {
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0px 4px 8px rgba(255, 165, 0, 0.5); /* Moderate orange shadow */
+  border-color: orange; /* Orange border color */
+  border-width: 2px; /* Adjust the border width as needed */
+  border-style: solid; /* Use a solid border style */
+  font-weight: 500;
+}
+.project__container {
+  display: grid;
+  width: 75rem;
+  grid-template-columns: repeat(2, 1fr);
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.img1 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 0.3rem solid black;
+  object-fit: cover;
+}
+
+.img2 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project__left__container {
+  font-weight: bold;
+  margin-right: auto;
+}
+
+.project__right__container {
+  display: flex;
+  gap: 1rem;
+}
+
+.project__right__container a {
+  padding: 0.5rem 0.5rem;
+  color: white;
+  background-color: black;
+  text-decoration: none;
+}
+
+.project__img__container {
+  padding: 1rem 1rem;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  width: 45rem;
+  height: 32rem;
+  padding: 2rem 2rem;
+  background-color: #ba9c8b;
+}
+.project__header {
+  display: flex;
+  margin-top: 1rem;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6rem;
+  margin-bottom: 0.5rem;
+}
+
+.game__description {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.project__title {
+  font-size: 1.5rem;
+}
+
+.project__features {
+  font-size: 1.5rem;
+}
+
+.features__list li {
+  margin-left: 2rem;
+}
+
+.features__list {
+  margin-bottom: 1rem;
+}
+
+.project__right__container button {
+  padding: 0.5rem 3px;
+}
+
+.project__page__title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+.project__text {
+  padding: 0rem 2rem;
+}
+
+.space {
+  margin-top: 3rem;
+}
+
+.technologies li {
+  margin-left: 2rem;
+  font-size: 1rem;
+}
+
+.tech-item {
+  display: flex;
+  align-items: center;
+  margin-right: 10px; /* Add spacing between items as needed */
+}
+
+.project__right__container button {
+  cursor: pointer;
+}
+
+.technologies__title {
+  font-size: 1.2rem;
 }
